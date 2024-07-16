@@ -16,27 +16,46 @@
 </head>
 
 <body>
-    <div class="logoContainer">
-        <img src="assets/img/logo.png" alt="Elden Ring Logo" class="logo" />
-        <h1 class="title">Completion Tracker</h1>
-    </div>
-    <div class="container">
-        <div id="formSection">
-            <div>
-                <label><strong>Upload Elden Ring save file :</strong></label>
-                <input type="file" id="savefile" accept=".sl2, .co2" />
-                <p>(Usually located in C:/Users/<i>yourName</i>/AppData/Roaming/EldenRing/<i>aNumber</i>/ER0000.sl2)</p>
-            </div>
-            <div style="display: none" id="slot_select"></div>
-            <button style="display: none" type="button" name="calculate" id="calculate" onclick="start()">Start</button>
+    <header>
+        <div class="logoContainer">
+            <img src="assets/img/logo.png" alt="Elden Ring Logo" class="logo" />
+            <h1 class="title">Completion Tracker</h1>
         </div>
-        <div id="resultSection"></div>
-    </div>
-    <div class="footer">
-        <a href="https://github.com/elden-ring-progression-tracker/elden-ring-progression-tracker.github.io"
-            target="_blank">See project
-            on GitHub</a>
-    </div>
+        <div class="social-link">
+            <a href="https://github.com/elden-ring-progression-tracker/elden-ring-progression-tracker.github.io"
+            target="_blank">
+                GitHub
+            </a>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <section id="formSection">
+                <div>
+                    <label for="savefile"><strong>Upload your Elden Ring save file :</strong></label>
+                    <input type="file" id="savefile" accept=".sl2, .co2" />
+                    <p class="helper-text">
+                        (Usually located in C:/Users/<i>yourName</i>/AppData/Roaming/EldenRing/<i>aNumber</i>/ER0000.sl2)
+                    </p>
+                </div>
+                <div style="display: none" id="slot_select"></div>
+                <button style="display: none" type="button" name="calculate" id="calculate" onclick="start()">Start</button>
+            </section>
+            <section id="resultSection"></section>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>by Zidodelakaraye <span id="current-year"></span></p>
+    </footer>
+
+    <script>
+        const today = new Date();
+        const currentYear = document.querySelector("#current-year");
+        
+        if (currentYear) {
+            currentYear.textContent = `${today.getFullYear()}`;
+        }
+    </script>
 </body>
 
 </html>
